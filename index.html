@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Najm Alabsi — Logistics & Supply Chain Professional</title>
+<style>
+  :root {
+    --primary: #071A2E;
+    --secondary: #1565C0;
+    --accent: #00C853;
+    --glass: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-hover: rgba(255,255,255,0.1);
+    --text: #ffffff;
+    --text-muted: #8899AA;
+    --glow: rgba(0,200,83,0.3);
+    --route: rgba(21,101,192,0.5);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --card-radius: 16px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+  body {
+    font-family: var(--font);
+    background: #020C18;
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--primary); }
+  ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 3px; }
+
+  /* ─── Navigation ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    height: 64px;
+    background: rgba(2,12,24,0.7);
+    backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    background: rgba(2,12,24,0.95);
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-links {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 2rem);
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--text);
+    background: var(--glass-hover);
+  }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 12px; right: 12px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;   /* Canvas must explicitly fill parent width */
+    height: 100%;  /* Canvas must explicitly fill parent height */
+    display: block;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 880px;
+    padding: 2rem;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: fadeUp 1s ease-out both;
+  }
+  .hero-badge .pulse {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    animation: fadeUp 1s ease-out 0.15s both;
+  }
+  .hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    animation: fadeUp 1s ease-out 0.3s both;
+  }
+  .hero-desc {
+    font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    animation: fadeUp 1s ease-out 0.45s both;
+  }
+
+  /* Hero stat cards */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s ease-out 0.6s both;
+  }
+  .stat-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 1.25rem 1rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+  }
+  .stat-card:hover {
+    background: var(--glass-hover);
+    border-color: rgba(0,200,83,0.2);
+    transform: translateY(-3px);
+  }
+  .stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  /* Hero CTAs */
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1s ease-out 0.75s both;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-family: var(--font);
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), #00B248);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,200,83,0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(0,200,83,0.45);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+  }
+  .btn-ghost:hover {
+    background: var(--glass-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ─── Section system ─── */
+  section {
+    position: relative;
+    padding: clamp(4rem, 10vw, 7rem) clamp(1rem, 5vw, 4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  /* ─── Glass Card ─── */
+  .glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+  }
+  .glass-card:hover {
+    background: var(--glass-hover);
+    border-color: rgba(0,200,83,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+
+  /* ─── About ─── */
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+  .about-content p {
+    margin-bottom: 1rem;
+  }
+  .about-content strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .about-content .accent {
+    color: var(--accent);
+  }
+
+  /* ─── Timeline ─── */
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--secondary));
+    border-radius: 1px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 70px;
+    padding-bottom: 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease-out;
+  }
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .timeline-dot {
+    position: absolute;
+    left: 15px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid #020C18;
+    box-shadow: 0 0 15px var(--glow);
+  }
+  .timeline-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .timeline-card .meta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .timeline-card .meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .timeline-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .course-tag {
+    background: rgba(0,200,83,0.1);
+    border: 1px solid rgba(0,200,83,0.2);
+    color: var(--accent);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* ─── Experience ─── */
+  .exp-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .exp-main {
+    grid-column: 1 / -1;
+  }
+  .exp-metric {
+    text-align: center;
+  }
+  .exp-metric .value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .exp-metric .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .responsibilities {
+    list-style: none;
+    margin-top: 1rem;
+  }
+  .responsibilities li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .responsibilities li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ─── Research ─── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 900px;
+    margin: 2rem auto 0;
+  }
+  .research-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .research-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .research-card:hover::before { opacity: 1; }
+  .research-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .research-card:nth-child(1) .research-icon { background: rgba(0,200,83,0.15); }
+  .research-card:nth-child(2) .research-icon { background: rgba(21,101,192,0.15); }
+  .research-card:nth-child(3) .research-icon { background: rgba(255,160,0,0.15); }
+  .research-card:nth-child(4) .research-icon { background: rgba(156,39,176,0.15); }
+  .research-card h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .research-card p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* Mini bar chart CSS */
+  .mini-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 30px;
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+  .mini-bar {
+    width: 6px;
+    background: var(--accent);
+    border-radius: 2px;
+    opacity: 0.7;
+    animation: barGrow 1.5s ease-out both;
+  }
+
+  /* ─── Skills ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .skill-category h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0,200,83,0.2);
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+  .skill-item:hover {
+    color: var(--text);
+    padding-left: 8px;
+  }
+  .skill-item::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── Languages ─── */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .lang-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .lang-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+  }
+  .lang-card .lang-strip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .lang-card:nth-child(1) .lang-strip { background: linear-gradient(90deg, #c41e3a, #000, #c41e3a); }
+  .lang-card:nth-child(2) .lang-strip { background: linear-gradient(90deg, #012169, #fff, #c8102e); }
+  .lang-card:nth-child(3) .lang-strip { background: linear-gradient(90deg, #000, #dd0000, #ffcc00); }
+  .lang-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.75rem 0 0.25rem;
+  }
+  .lang-level {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .lang-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+  .proficiency-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+  .proficiency-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    transition: width 1.5s ease-out;
+  }
+
+  /* ─── Interests ─── */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .interest-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    animation: float 6s ease-in-out infinite;
+  }
+  .interest-card:nth-child(2) { animation-delay: -1.5s; }
+  .interest-card:nth-child(3) { animation-delay: -3s; }
+  .interest-card:nth-child(4) { animation-delay: -4.5s; }
+  .interest-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--accent);
+    background: var(--glass-hover);
+  }
+  .interest-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: rgba(0,200,83,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    border: 1px solid rgba(0,200,83,0.2);
+    transition: var(--transition);
+  }
+  .interest-card:hover .interest-icon {
+    background: rgba(0,200,83,0.2);
+    transform: rotate(5deg) scale(1.1);
+  }
+  .interest-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  /* ─── Contact ─── */
+  .contact-center {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .contact-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: var(--transition);
+  }
+  .contact-action:hover {
+    background: var(--glass-hover);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0,200,83,0.1);
+  }
+  .contact-action .icon {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: rgba(0,200,83,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    border: 1px solid rgba(0,200,83,0.2);
+  }
+  .contact-action .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+  .contact-action .value {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    background: rgba(7,26,46,0.3);
+  }
+  footer .name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  footer .role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  footer .tagline {
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  footer .copyright {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── Animations ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.85); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+  @keyframes barGrow {
+    from { height: 0; }
+  }
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .research-grid, .skills-grid, .lang-grid, .interests-grid { grid-template-columns: repeat(2, 1fr); }
+    .exp-dashboard { grid-template-columns: 1fr; }
+    .contact-actions { grid-template-columns: 1fr; }
+    .timeline::before { left: 14px; }
+    .timeline-item { padding-left: 44px; }
+    .timeline-dot { left: 5px; width: 18px; height: 18px; }
+    section { padding-left: 1rem; padding-right: 1rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .stat-card { padding: 1rem; }
+    .stat-number { font-size: 1.4rem; }
+    .research-grid, .interests-grid { grid-template-columns: 1fr; }
+    .skills-grid, .lang-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── International Perspective Section ─── */
+  .intl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .intl-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .intl-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .intl-card:hover::before { opacity: 1; }
+  .intl-card:hover {
+    background: var(--glass-hover);
+    border-color: rgba(21,101,192,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+  .intl-flag {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .intl-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .intl-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .intl-focus-title {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+  }
+  .intl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .intl-tag {
+    background: rgba(21,101,192,0.12);
+    border: 1px solid rgba(21,101,192,0.25);
+    color: #6EA8FE;
+    font-size: 0.72rem;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* ─── Designer Credit ─── */
+  .designer-credit {
+    display: block;
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 11.5px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.3px;
+    opacity: 0.45;
+  }
+  .designer-credit a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  .designer-credit a:hover {
+    opacity: 0.7;
+  }
+
+  /* ─── Language card polish — connection note ─── */
+  .lang-context {
+    font-size: 0.72rem;
+    color: rgba(21,101,192,0.8);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .intl-grid { grid-template-columns: 1fr; }
+  }
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(2,12,24,0.98);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav id="navbar">
+  <div class="logo">MNA</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#education" class="nav-link">Education</a></li>
+    <li><a href="#experience" class="nav-link">Experience</a></li>
+    <li><a href="#international" class="nav-link">International</a></li>
+    <li><a href="#research" class="nav-link">Research</a></li>
+    <li><a href="#skills" class="nav-link">Skills</a></li>
+    <li><a href="#languages" class="nav-link">Languages</a></li>
+    <li><a href="#interests" class="nav-link">Interests</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+</nav>
+
+<!-- ─── Hero ─── -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="pulse"></span>
+      <span>Global Logistics</span>
+    </div>
+    <h1><span class="gradient-text">Mohammed Najm Alabsi</span></h1>
+    <p class="hero-subtitle">Logistics &amp; Supply Chain Professional</p>
+    <p class="hero-desc">Focused on efficient supply chains, sustainable logistics, and the systems that connect industries across borders.</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-number" style="font-size:1rem;line-height:1.75rem;">GJU</span>
+        <span class="stat-label">University</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-count="3">0</span>
+        <span class="stat-label">Languages</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" style="font-size:1rem;line-height:1.75rem;">Green</span>
+        <span class="stat-label">Research Focus</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" style="font-size:1rem;line-height:1.75rem;">Supply<br>Chain</span>
+        <span class="stat-label">Domain</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ─── -->
+<section id="about" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Profile</span>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="glass-card">
+    <div class="about-content">
+      <p><strong>Logistics and supply chain operations</strong> professional based in Amman, Jordan, with hands-on experience in logistics internship and deep knowledge of <span class="accent">sustainable transportation systems</span>. Trained at the <span class="accent">German Jordanian University</span>, with a curriculum built around real-world logistics environments.</p>
+      <p>Specialising in <strong>supply chain optimisation, green logistics, and international trade systems</strong>. Operating at the intersection of sustainability, operational efficiency, and cross-border logistics infrastructure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Education ─── -->
+<section id="education" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Professional Development</span>
+    <h2 class="section-title">Global Logistics Foundation</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card glass-card">
+        <h3>Bachelor of Science in Logistics Sciences</h3>
+        <div class="meta">
+          <span>&#127891; German Jordanian University (GJU)</span>
+          <span>&#128205; Amman, Jordan</span>
+          <span>&#128197; Expected 2027</span>
+        </div>
+        <p>Comprehensive study of logistics operations, supply chain management, and sustainable transportation systems.</p>
+        <div class="course-tags">
+          <span class="course-tag">Green Logistics</span>
+          <span class="course-tag">Supply Chain Management</span>
+          <span class="course-tag">Transportation Systems</span>
+          <span class="course-tag">International Trade</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card glass-card">
+        <h3>Bachelor Thesis</h3>
+        <div class="meta">
+          <span>&#128218; Green Logistics Optimization in Jordan</span>
+          <span>&#9889; In Progress</span>
+        </div>
+        <p>Investigating sustainable logistics practices in Jordan and analyzing data for carbon-neutral transportation strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Experience ─── -->
+<section id="experience" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Professional</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-dashboard">
+    <div class="glass-card exp-main">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <h3 style="font-size:1.3rem;margin-bottom:0.25rem;">Logistics Intern</h3>
+          <p style="color:var(--accent);font-size:0.85rem;">Al Bushnaq Food Supplies &mdash; Amman, Jordan</p>
+        </div>
+        <span style="background:rgba(0,200,83,0.1);color:var(--accent);font-size:0.75rem;padding:4px 14px;border-radius:100px;border:1px solid rgba(0,200,83,0.2);">2025</span>
+      </div>
+      <ul class="responsibilities">
+        <li>Assisted in inventory management and stock monitoring</li>
+        <li>Supported supply chain operations and order processing</li>
+        <li>Coordinated with suppliers and internal teams</li>
+        <li>Gained hands-on experience in food supply logistics and distribution</li>
+      </ul>
+    </div>
+    <div class="glass-card exp-metric">
+      <div class="value">1+</div>
+      <div class="label">Years Experience</div>
+    </div>
+    <div class="glass-card exp-metric">
+      <div class="value">4</div>
+      <div class="label">Key Responsibilities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── International Perspective ─── -->
+<section id="international" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Global Outlook</span>
+    <h2 class="section-title">International Perspective</h2>
+  </div>
+  <div class="intl-grid">
+    <!-- Germany card -->
+    <div class="intl-card">
+      <div class="intl-flag">🇩🇪</div>
+      <h3>Germany</h3>
+      <p>Developing international logistics expertise through German language proficiency (B1 certified), cross-cultural business understanding, and preparation for advanced European logistics environments. The German Jordanian University curriculum is directly aligned with German academic and industry standards.</p>
+      <div class="intl-focus-title">Focus Areas</div>
+      <div class="intl-tags">
+        <span class="intl-tag">European Supply Chains</span>
+        <span class="intl-tag">Sustainable Transportation</span>
+        <span class="intl-tag">International Trade</span>
+        <span class="intl-tag">Logistics Innovation</span>
+      </div>
+    </div>
+    <!-- Global logistics card -->
+    <div class="intl-card">
+      <div class="intl-flag">🌐</div>
+      <h3>Global Operations</h3>
+      <p>Working knowledge of how international logistics systems connect markets across the Middle East, Europe, and beyond. Research in green logistics and carbon-neutral transportation is conducted with a global lens, drawing on data from multiple regional contexts.</p>
+      <div class="intl-focus-title">Operational Context</div>
+      <div class="intl-tags">
+        <span class="intl-tag">MENA Region</span>
+        <span class="intl-tag">EU Logistics Standards</span>
+        <span class="intl-tag">Cross-Border Trade</span>
+        <span class="intl-tag">Carbon Neutral Ops</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Research ─── -->
+<section id="research" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Academic Work</span>
+    <h2 class="section-title">Research &amp; Academic Work</h2>
+  </div>
+  <div class="glass-card" style="max-width:800px;margin:0 auto 2rem;text-align:center;">
+    <h3 style="font-size:1.2rem;margin-bottom:0.5rem;color:var(--accent);">Green Logistics in Jordan</h3>
+    <p style="color:var(--text-muted);font-size:0.95rem;">Investigating sustainable logistics practices in Jordan and analyzing data for carbon-neutral transportation strategies.</p>
+  </div>
+  <div class="research-grid">
+    <div class="research-card glass-card">
+      <div class="research-icon">&#127807;</div>
+      <h4>Sustainability</h4>
+      <p>Eco-friendly logistics practices</p>
+      <div class="mini-chart">
+        <div class="mini-bar" style="height:70%"></div>
+        <div class="mini-bar" style="height:55%;animation-delay:0.1s"></div>
+        <div class="mini-bar" style="height:85%;animation-delay:0.2s"></div>
+        <div class="mini-bar" style="height:65%;animation-delay:0.3s"></div>
+        <div class="mini-bar" style="height:90%;animation-delay:0.4s"></div>
+      </div>
+    </div>
+    <div class="research-card glass-card">
+      <div class="research-icon">&#128740;</div>
+      <h4>Transportation</h4>
+      <p>Efficient movement systems</p>
+      <div class="mini-chart">
+        <div class="mini-bar" style="height:60%"></div>
+        <div class="mini-bar" style="height:80%;animation-delay:0.1s"></div>
+        <div class="mini-bar" style="height:45%;animation-delay:0.2s"></div>
+        <div class="mini-bar" style="height:75%;animation-delay:0.3s"></div>
+        <div class="mini-bar" style="height:70%;animation-delay:0.4s"></div>
+      </div>
+    </div>
+    <div class="research-card glass-card">
+      <div class="research-icon">&#128260;</div>
+      <h4>Carbon Reduction</h4>
+      <p>Lowering emissions output</p>
+      <div class="mini-chart">
+        <div class="mini-bar" style="height:80%"></div>
+        <div class="mini-bar" style="height:65%;animation-delay:0.1s"></div>
+        <div class="mini-bar" style="height:90%;animation-delay:0.2s"></div>
+        <div class="mini-bar" style="height:55%;animation-delay:0.3s"></div>
+        <div class="mini-bar" style="height:85%;animation-delay:0.4s"></div>
+      </div>
+    </div>
+    <div class="research-card glass-card">
+      <div class="research-icon">&#128202;</div>
+      <h4>Optimization</h4>
+      <p>Data-driven improvements</p>
+      <div class="mini-chart">
+        <div class="mini-bar" style="height:75%"></div>
+        <div class="mini-bar" style="height:90%;animation-delay:0.1s"></div>
+        <div class="mini-bar" style="height:60%;animation-delay:0.2s"></div>
+        <div class="mini-bar" style="height:85%;animation-delay:0.3s"></div>
+        <div class="mini-bar" style="height:70%;animation-delay:0.4s"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Skills ─── -->
+<section id="skills" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Capabilities</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="glass-card skill-category">
+      <h3>Logistics Skills</h3>
+      <div class="skill-item">Supply Chain Modeling</div>
+      <div class="skill-item">Logistics Operations</div>
+      <div class="skill-item">Data Analysis</div>
+    </div>
+    <div class="glass-card skill-category">
+      <h3>Software</h3>
+      <div class="skill-item">Microsoft Office Suite</div>
+      <div class="skill-item">Advanced Excel</div>
+      <div class="skill-item">macOS</div>
+    </div>
+    <div class="glass-card skill-category">
+      <h3>AI &amp; Digital Media</h3>
+      <div class="skill-item">AI Media Generation</div>
+      <div class="skill-item">Text-to-Video</div>
+      <div class="skill-item">Image Editing</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Languages ─── -->
+<section id="languages" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Multilingual</span>
+    <h2 class="section-title">Languages</h2>
+  </div>
+  <div class="lang-grid">
+    <div class="lang-card glass-card">
+      <div class="lang-strip"></div>
+      <div style="font-size:2rem;margin-top:0.5rem;">&#127765;</div>
+      <div class="lang-name">Arabic</div>
+      <div class="lang-level">Native Speaker</div>
+      <div class="lang-note">Foundation for MENA logistics communication</div>
+      <div class="proficiency-bar"><div class="proficiency-fill" data-width="100%"></div></div>
+    </div>
+    <div class="lang-card glass-card">
+      <div class="lang-strip"></div>
+      <div style="font-size:2rem;margin-top:0.5rem;">&#127758;</div>
+      <div class="lang-name">English</div>
+      <div class="lang-level">C1 (CEFR)</div>
+      <div class="lang-note">International business & logistics operations</div>
+      <div class="proficiency-bar"><div class="proficiency-fill" data-width="85%"></div></div>
+    </div>
+    <div class="lang-card glass-card">
+      <div class="lang-strip"></div>
+      <div style="font-size:2rem;margin-top:0.5rem;">&#127756;</div>
+      <div class="lang-name">German</div>
+      <div class="lang-level">B1 (GJU DaF)</div>
+      <div class="lang-note">Certified February 2026 · European logistics access</div>
+      <div class="proficiency-bar"><div class="proficiency-fill" data-width="60%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Interests ─── -->
+<section id="interests" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Personal</span>
+    <h2 class="section-title">Interests</h2>
+  </div>
+  <div class="interests-grid">
+    <div class="interest-card glass-card">
+      <div class="interest-icon">&#127793;</div>
+      <h4>Sustainable Technology</h4>
+    </div>
+    <div class="interest-card glass-card">
+      <div class="interest-icon">&#129302;</div>
+      <h4>AI in Logistics</h4>
+    </div>
+    <div class="interest-card glass-card">
+      <div class="interest-icon">&#128161;</div>
+      <h4>Digital Creativity</h4>
+    </div>
+    <div class="interest-card glass-card">
+      <div class="interest-icon">&#127760;</div>
+      <h4>Cross-Cultural Learning</h4>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ─── -->
+<section id="contact" class="reveal">
+  <div class="section-header">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <div class="contact-center">
+    <div class="glass-card" style="margin-bottom:1.5rem;">
+      <h3 style="font-size:1.4rem;margin-bottom:0.25rem;">Mohammed Najm Alabsi</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem;">Logistics &amp; Supply Chain Professional &mdash; Amman, Jordan</p>
+    </div>
+    <div class="contact-actions">
+      <a href="tel:0790757968" class="contact-action">
+        <div class="icon">&#128222;</div>
+        <span class="label">Call Now</span>
+        <span class="value">0790757968</span>
+      </a>
+      <a href="mailto:absistar4@gmail.com" class="contact-action">
+        <div class="icon">&#9993;</div>
+        <span class="label">Send Email</span>
+        <span class="value" style="font-size:0.75rem;">absistar4@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/mohammed-najm-alabsi-ba6128366" target="_blank" rel="noopener noreferrer" class="contact-action">
+        <div class="icon">&#128279;</div>
+        <span class="label">LinkedIn</span>
+        <span class="value" style="font-size:0.7rem;">View Profile</span>
+      </a>
+    </div>
+    <div class="contact-info">
+      <span>&#128205; Amman, Jordan</span>
+      <span>&#128222; 0790757968</span>
+      <span>&#128231; absistar4@gmail.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="name">Mohammed Najm Alabsi</div>
+  <div class="role">Logistics &amp; Supply Chain Professional</div>
+  <div class="tagline">Connecting Sustainability, Logistics, and Innovation Across Borders.</div>
+  <div class="copyright" id="footerYear"></div>
+  <!-- Discreet designer signature -->
+  <span class="designer-credit">Experience designed &amp; engineered by <a href="https://asha.mohamad-ismail-asha.workers.dev/" target="_blank" rel="noopener noreferrer">Mohammed Ismail Asha</a></span>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// HERO CANVAS — Animated Logistics Network
+// ═══════════════════════════════════════════
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+
+let W, H, dpr;
+let nodes = [];
+let routes = [];
+let cargos = [];
+let particles = [];
+let mouseX = 0, mouseY = 0;
+let frame = 0;
+
+function resize() {
+  dpr = Math.min(window.devicePixelRatio, 2);
+  // Use the hero section's size as the source of truth
+  // canvas.offsetWidth can be 0 before CSS is applied, so fall back to window size
+  W = canvas.offsetWidth || window.innerWidth;
+  H = canvas.offsetHeight || window.innerHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  initNetwork();
+}
+
+// World region coordinates (normalized)
+const REGIONS = [
+  { name: 'NA', x: 0.18, y: 0.35 },
+  { name: 'SA', x: 0.25, y: 0.70 },
+  { name: 'EU', x: 0.50, y: 0.28 },
+  { name: 'AF', x: 0.48, y: 0.55 },
+  { name: 'ME', x: 0.58, y: 0.40 },
+  { name: 'AS', x: 0.72, y: 0.35 },
+  { name: 'IN', x: 0.65, y: 0.50 },
+  { name: 'CN', x: 0.78, y: 0.38 },
+  { name: 'JP', x: 0.88, y: 0.36 },
+  { name: 'AU', x: 0.85, y: 0.72 },
+];
+
+const CONNECTIONS = [
+  [0,2],[0,1],[2,3],[2,4],[2,5],[2,6],[4,6],[4,7],[5,7],[5,8],[7,8],[7,9],[5,9],[6,9],[3,6],[1,3],[0,4],[2,8],[6,7]
+];
+
+function initNetwork() {
+  nodes = REGIONS.map(r => ({
+    x: r.x * W,
+    y: r.y * H,
+    baseX: r.x * W,
+    baseY: r.y * H,
+    name: r.name,
+    pulse: Math.random() * Math.PI * 2
+  }));
+
+  routes = CONNECTIONS.map(([a,b]) => ({
+    from: nodes[a],
+    to: nodes[b],
+    length: Math.hypot(nodes[b].x - nodes[a].x, nodes[b].y - nodes[a].y)
+  }));
+
+  cargos = [];
+  for (let i = 0; i < 12; i++) {
+    spawnCargo();
+  }
+
+  particles = [];
+  for (let i = 0; i < 40; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      size: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.5 + 0.1
+    });
+  }
+}
+
+function spawnCargo() {
+  const route = routes[Math.floor(Math.random() * routes.length)];
+  cargos.push({
+    route,
+    progress: Math.random(),
+    speed: 0.002 + Math.random() * 0.003
+  });
+}
+
+function drawGrid() {
+  // Subtle grid lines as background texture
+  ctx.strokeStyle = 'rgba(21,101,192,0.06)';
+  ctx.lineWidth = 0.5;
+  const step = 60;
+  for (let x = 0; x < W; x += step) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, H);
+    ctx.stroke();
+  }
+  for (let y = 0; y < H; y += step) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(W, y);
+    ctx.stroke();
+  }
+}
+
+// Simplified world map continent outlines (normalized 0-1 coordinates)
+// These are rough silhouettes that give the impression of a world map
+function drawWorldMap() {
+  ctx.save();
+
+  // Scale path coordinates to canvas size
+  const sx = W;
+  const sy = H;
+
+  // Helper: draw a rough continent blob
+  function drawContinent(points, color) {
+    ctx.beginPath();
+    ctx.moveTo(points[0][0] * sx, points[0][1] * sy);
+    for (let i = 1; i < points.length; i++) {
+      ctx.lineTo(points[i][0] * sx, points[i][1] * sy);
+    }
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+
+  const mapAlpha = 'rgba(21,101,192,0.07)';
+
+  // North America (rough)
+  drawContinent([
+    [0.08,0.18],[0.22,0.15],[0.30,0.20],[0.32,0.30],
+    [0.28,0.42],[0.24,0.48],[0.18,0.50],[0.12,0.45],
+    [0.08,0.38],[0.05,0.28]
+  ], mapAlpha);
+
+  // South America (rough)
+  drawContinent([
+    [0.20,0.54],[0.28,0.52],[0.32,0.60],[0.30,0.72],
+    [0.24,0.82],[0.18,0.85],[0.14,0.78],[0.16,0.65]
+  ], mapAlpha);
+
+  // Europe (rough)
+  drawContinent([
+    [0.42,0.18],[0.52,0.16],[0.58,0.20],[0.56,0.30],
+    [0.50,0.35],[0.44,0.32],[0.40,0.26]
+  ], mapAlpha);
+
+  // Africa (rough)
+  drawContinent([
+    [0.42,0.36],[0.52,0.33],[0.58,0.38],[0.58,0.52],
+    [0.52,0.66],[0.46,0.72],[0.40,0.65],[0.38,0.52],
+    [0.40,0.42]
+  ], mapAlpha);
+
+  // Middle East (rough)
+  drawContinent([
+    [0.54,0.30],[0.64,0.28],[0.68,0.35],[0.64,0.44],
+    [0.56,0.46],[0.52,0.40]
+  ], mapAlpha);
+
+  // Asia (rough)
+  drawContinent([
+    [0.58,0.18],[0.72,0.16],[0.88,0.20],[0.92,0.30],
+    [0.88,0.42],[0.78,0.46],[0.68,0.44],[0.62,0.38],
+    [0.60,0.28]
+  ], mapAlpha);
+
+  // India (rough)
+  drawContinent([
+    [0.62,0.44],[0.70,0.42],[0.72,0.52],[0.68,0.60],
+    [0.62,0.58],[0.60,0.50]
+  ], mapAlpha);
+
+  // Australia (rough)
+  drawContinent([
+    [0.78,0.64],[0.90,0.62],[0.94,0.70],[0.90,0.78],
+    [0.80,0.80],[0.74,0.74],[0.74,0.68]
+  ], mapAlpha);
+
+  ctx.restore();
+}
+
+function drawConnections() {
+  routes.forEach(route => {
+    const dx = route.to.x - route.from.x;
+    const dy = route.to.y - route.from.y;
+    const midX = (route.from.x + route.to.x) / 2 - dy * 0.15;
+    const midY = (route.from.y + route.to.y) / 2 + dx * 0.15;
+
+    // Route line
+    ctx.strokeStyle = 'rgba(21,101,192,0.25)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([6, 10]);
+    ctx.lineDashOffset = -frame * 0.5;
+    ctx.beginPath();
+    ctx.moveTo(route.from.x, route.from.y);
+    ctx.quadraticCurveTo(midX, midY, route.to.x, route.to.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Active glow on some routes
+    if (Math.sin(frame * 0.01 + route.length) > 0.7) {
+      ctx.strokeStyle = 'rgba(0,200,83,0.15)';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = 'rgba(0,200,83,0.4)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.moveTo(route.from.x, route.from.y);
+      ctx.quadraticCurveTo(midX, midY, route.to.x, route.to.y);
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+  });
+}
+
+function drawNodes() {
+  nodes.forEach(node => {
+    // Mouse parallax
+    const px = (mouseX - W/2) * 0.02;
+    const py = (mouseY - H/2) * 0.02;
+    node.x = node.baseX + px;
+    node.y = node.baseY + py;
+
+    // Pulse
+    const pulseR = 6 + Math.sin(frame * 0.03 + node.pulse) * 3;
+
+    // Glow
+    const glow = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseR * 3);
+    glow.addColorStop(0, 'rgba(0,200,83,0.15)');
+    glow.addColorStop(1, 'rgba(0,200,83,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, pulseR * 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Node dot
+    ctx.fillStyle = '#00C853';
+    ctx.shadowColor = 'rgba(0,200,83,0.6)';
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  });
+}
+
+function drawCargos() {
+  cargos.forEach((cargo, i) => {
+    cargo.progress += cargo.speed;
+    if (cargo.progress >= 1) {
+      cargos.splice(i, 1);
+      spawnCargo();
+      return;
+    }
+
+    const t = cargo.progress;
+    const r = cargo.route;
+    const dx = r.to.x - r.from.x;
+    const dy = r.to.y - r.from.y;
+    const midX = (r.from.x + r.to.x) / 2 - dy * 0.15;
+    const midY = (r.from.y + r.to.y) / 2 + dx * 0.15;
+
+    // Quadratic bezier point
+    const x = (1-t)*(1-t)*r.from.x + 2*(1-t)*t*midX + t*t*r.to.x;
+    const y = (1-t)*(1-t)*r.from.y + 2*(1-t)*t*midY + t*t*r.to.y;
+
+    // Cargo glow
+    const glow = ctx.createRadialGradient(x, y, 0, x, y, 12);
+    glow.addColorStop(0, 'rgba(255,160,0,0.3)');
+    glow.addColorStop(1, 'rgba(255,160,0,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(x, y, 12, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Cargo dot
+    ctx.fillStyle = '#FFA000';
+    ctx.shadowColor = 'rgba(255,160,0,0.6)';
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  });
+}
+
+function drawParticles() {
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0) p.x = W;
+    if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H;
+    if (p.y > H) p.y = 0;
+
+    ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+}
+
+function drawGradientOverlay() {
+  const grad = ctx.createLinearGradient(0, 0, 0, H);
+  grad.addColorStop(0, 'rgba(2,12,24,0.3)');
+  grad.addColorStop(0.4, 'rgba(2,12,24,0.05)');
+  grad.addColorStop(0.6, 'rgba(2,12,24,0.05)');
+  grad.addColorStop(1, 'rgba(2,12,24,0.8)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function animate() {
+  frame++;
+  ctx.clearRect(0, 0, W, H);
+
+  // Background gradient
+  const bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.7);
+  bg.addColorStop(0, '#0a1f3a');
+  bg.addColorStop(0.5, '#071a2e');
+  bg.addColorStop(1, '#020c12');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  drawGrid();
+  drawWorldMap();
+  drawConnections();
+  drawNodes();
+  drawCargos();
+  drawParticles();
+  drawGradientOverlay();
+
+  requestAnimationFrame(animate);
+}
+
+// Canvas mouse tracking
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  mouseX = e.clientX - rect.left;
+  mouseY = e.clientY - rect.top;
+});
+
+// ═══════════════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════════════
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+  timelineItems.forEach(el => observer.observe(el));
+}
+
+// ═══════════════════════════════════════════
+// NAVBAR ACTIVE SECTION
+// ═══════════════════════════════════════════
+function initNavHighlight() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 200;
+
+    sections.forEach(section => {
+      if (scrollPos >= section.offsetTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+
+    // Navbar background
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+}
+
+// ═══════════════════════════════════════════
+// ANIMATED COUNTERS
+// ═══════════════════════════════════════════
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-number[data-count]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count);
+        animateCounter(el, target);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => observer.observe(c));
+}
+
+function animateCounter(el, target) {
+  const duration = 2000;
+  const start = performance.now();
+  const isYear = target > 1000;
+
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = isYear ? current : current + '+';
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = isYear ? target : target + '+';
+  }
+  requestAnimationFrame(tick);
+}
+
+// ═══════════════════════════════════════════
+// LANGUAGE BARS ANIMATION
+// ═══════════════════════════════════════════
+function initLanguageBars() {
+  const fills = document.querySelectorAll('.proficiency-fill');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        fill.style.width = fill.dataset.width;
+        observer.unobserve(fill);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  fills.forEach(f => observer.observe(f));
+}
+
+// ═══════════════════════════════════════════
+// MOBILE NAV TOGGLE
+// ═══════════════════════════════════════════
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('mobile-open');
+  });
+});
+
+// ═══════════════════════════════════════════
+// FOOTER YEAR
+// ═══════════════════════════════════════════
+document.getElementById('footerYear').textContent = '\u00A9 ' + new Date().getFullYear() + ' Mohammed Najm Alabsi. All rights reserved.';
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+window.addEventListener('resize', resize);
+window.addEventListener('load', () => {
+  resize();
+  animate();
+  initScrollReveal();
+  initNavHighlight();
+  initCounters();
+  initLanguageBars();
+});
+</script>
+</body>
+</html>
